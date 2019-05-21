@@ -21,7 +21,8 @@ def es_mapa(texto): #funcion que responde si el texto input es un mapa,
   
   else:
     n = len(lista[0]) #elegimos como longitud de referencia a la de la primera fila
-
+    
+    
     B=True #booleano auxiliar para salir de los dos ciclos
     for k in range(m):
         sub = lista[k] #tomamos la fila k-esima
@@ -29,11 +30,13 @@ def es_mapa(texto): #funcion que responde si el texto input es un mapa,
           for i in range(n):
             if sub[i]!='0' and sub[i]!='1':  #aqui chequeamos que todos los elementos sean 0 o 1
               B=False   #truco para salir de los dos ciclos
+              print(no)
               break
         else:
-          print(no) #si falla alguna condicion, respondemos que no es mapa
-          break
-        if k==m-1:
+          if B==True:
+            print(no) #si falla alguna condicion, respondemos que no es mapa
+            break
+        if k==m-1 and B==True:
           print(si) #si tiene todas las condiciones, respondemos que es un mapa
     
 
@@ -54,7 +57,6 @@ def cantidad_paredes(texto): #funcion que cuenta la cantidad de paredes (1's) de
 
 
 def cantidad_paredes_aux(lista):
-""" Esta función hace algo"""
   #funcion auxiliar que DEVUELVE la cantidad de paredes
                                  #de una lista obtenida a partir de un texto input
                                  #sera usada en las funciones espacios_rodeados y densidad
