@@ -120,7 +120,7 @@ def dimensiones(texto):
 
   print('El mapa tiene', n, 'cuadrados de ancho y', m, 'de alto.')
 
-
+  
 
 def corredor_horizontal_mas_largo(texto):
   lista = listartexto(texto) #convertimos el texto input en una lista de listas de enteros
@@ -130,20 +130,15 @@ def corredor_horizontal_mas_largo(texto):
   if m>0:
     n = len(lista[0])
     
-    for i in range(m):      #contamos la cantidad de 0's horizontales  
+    for i in range(m):      #contamos la cantidad de 0's horizontales
+      contador = 0
       for j in range(n):    #a partir de la entrada i-j
-        for k in range(n-j):
-          if lista[i][j+k]==0:
-            lista[i][j] = lista[i][j]+1 #notar que al modificar la entrada i-j
-                                        #no se arruina la cuenta para los siguientes terminos
-                                        #porque avanzamos hacia la derecha (j aumenta)
-          elif k==0:
-            lista[i][j] = 0 #si empezamos en una entrada no nula el largo del corredor es 0
-            break
-          else:
-            break
-    s = max(max(lista)) #tomamos la fila que tiene al maximo
-                        #y despues a este maximo
+        if lista[i][j]==0:
+          contador = contador +1
+          if contador > s:
+            s = contador
+        else:
+           contador = 0
 
   print('El corredor horizontal mas largo tiene longitud', s)
 
