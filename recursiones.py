@@ -44,7 +44,7 @@ def combinar(lista1,lista2):
 
 #-----------------------------------------------------------------------------
 
-def hanoi(m):  #resuelve el juego de hanoi con m fichas
+def hanoi(m):  #resuelve el juego de hanoi con m fichas (solo se puede mover a estacas consecutivas)
   return resolver_hanoi(set_hanoi(m), m)
 
 def set_hanoi(m):
@@ -92,7 +92,6 @@ def mov32(lista):
 
 def mov21(lista):
   print("movimiento de 2 a 1 en: ", lista)
-  #print(lista)
   n = len(lista[1])
   if n > 0:
     lista[0] = lista[0] + [ lista[1][n-1] ]
